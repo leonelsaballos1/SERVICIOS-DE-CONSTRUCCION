@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ortega Construction Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* GENERAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+body{
+background:#f4efe8;
+color:#333;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 8%;
+background:linear-gradient(90deg,#4b3621,#9c7b5b);
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:600;
+}
+
+/* NAV CENTER */
+
+nav{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+nav a{
+margin:0 18px;
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+nav a:hover{
+opacity:.8;
+}
+
+/* LANGUAGE BUTTONS */
+
+.lang{
+display:flex;
+}
+
+.lang button{
+margin-left:6px;
+padding:6px 12px;
+border:none;
+background:#e0c3a3;
+color:#4b3621;
+border-radius:5px;
+cursor:pointer;
+font-weight:600;
+}
+
+/* MENU BUTTON */
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+margin-left:10px;
+}
+
+/* HERO */
+
+.hero{
+height:85vh;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url("https://images.unsplash.com/photo-1503387762-592deb58ef4e");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:0 10%;
+color:white;
+}
+
+.hero h1{
+font-size:45px;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:550px;
+font-size:18px;
+line-height:1.6;
+}
+
+/* SECTIONS */
+
+section{
+padding:80px 10%;
+text-align:center;
+}
+
+section h2{
+font-size:32px;
+margin-bottom:25px;
+color:#4b3621;
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.service{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.service:hover{
+transform:translateY(-5px);
+}
+
+/* CONTACT */
+
+.contact{
+background:#2f2f2f;
+color:white;
+}
+
+.contact-buttons{
+margin-top:30px;
+}
+
+.contact-buttons a{
+display:inline-block;
+margin:10px;
+padding:12px 25px;
+background:#c19a6b;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:600;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:16px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 12px rgba(0,0,0,.3);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+nav{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#4b3621;
+flex-direction:column;
+display:none;
+padding:20px;
+}
+
+nav.active{
+display:flex;
+}
+
+nav a{
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Ortega Construction</div>
+
+<nav id="navMenu">
+
+<a href="#home" data-en="Home" data-es="Inicio">Home</a>
+<a href="#about" data-en="About Us" data-es="Sobre Nosotros">About</a>
+<a href="#services" data-en="Services" data-es="Servicios">Services</a>
+<a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+
+</nav>
+
+<div class="lang">
+<button onclick="changeLang('en')">EN</button>
+<button onclick="changeLang('es')">ES</button>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div>
+
+<h1
+data-en="Quality Construction You Can Trust"
+data-es="Construcción de Calidad en la que Puede Confiar">
+
+Quality Construction You Can Trust
+
+</h1>
+
+<p
+data-en="At Ortega Construction Services we specialize in stucco, renovation and painting. Our mission is to deliver reliable, high-quality work that transforms homes and businesses while building long-term relationships with our clients."
+data-es="En Ortega Construction Services nos especializamos en estuco, renovación y pintura. Nuestra misión es ofrecer trabajos confiables y de alta calidad que transformen hogares y negocios, construyendo relaciones duraderas con nuestros clientes.">
+
+Professional construction solutions with attention to detail.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2
+data-en="About Our Company"
+data-es="Sobre Nuestra Empresa">
+
+About Our Company
+
+</h2>
+
+<p
+data-en="Ortega Construction Services is dedicated to providing professional construction solutions with integrity, precision and attention to detail."
+data-es="Ortega Construction Services se dedica a brindar soluciones profesionales de construcción con integridad, precisión y atención a los detalles.">
+
+Company description
+
+</p>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<h2
+data-en="Our Services"
+data-es="Nuestros Servicios">
+
+Our Services
+
+</h2>
+
+<div class="services">
+
+<div class="service">
+
+<h3 data-en="Stucco" data-es="Estuco">Stucco</h3>
+
+<p
+data-en="Professional stucco installation and repair designed to protect your property."
+data-es="Instalación y reparación profesional de estuco para proteger su propiedad.">
+
+Stucco service
+
+</p>
+
+</div>
+
+<div class="service">
+
+<h3 data-en="Renovation" data-es="Renovación">Renovation</h3>
+
+<p
+data-en="We renovate homes and spaces to give them new life."
+data-es="Renovamos hogares y espacios para darles nueva vida.">
+
+Renovation service
+
+</p>
+
+</div>
+
+<div class="service">
+
+<h3 data-en="Painting" data-es="Pintura">Painting</h3>
+
+<p
+data-en="Interior and exterior painting with high quality materials."
+data-es="Pintura interior y exterior con materiales de alta calidad.">
+
+Painting service
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2
+data-en="Contact Us"
+data-es="Contáctanos">
+
+Contact Us
+
+</h2>
+
+<div class="contact-buttons">
+
+<a href="https://mail.google.com/mail/?view=cm&to=marcoortega388@gmail.com" target="_blank">
+Send Email
+</a>
+
+<a href="https://wa.me/13056327343" target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+<p style="margin-top:20px">
+
+📞 305-632-7343  
+<br>
+✉ marcoortega388@gmail.com  
+
+</p>
+
+</section>
+
+
+<a class="whatsapp" href="https://wa.me/13056327343" target="_blank">💬</a>
+
+
+<script>
+
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("active")
+}
+
+function changeLang(lang){
+document.querySelectorAll("[data-en]").forEach(el=>{
+el.innerText = el.getAttribute("data-"+lang)
+})
+}
+
+window.onload=function(){
+changeLang("en")
+}
+
+</script>
+
+</body>
+</html>
