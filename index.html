@@ -10,6 +10,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
 <style>
 
 *{
@@ -31,7 +33,7 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:18px 8%;
-background:linear-gradient(90deg,#4b3621,#9c7b5b);
+background:linear-gradient(90deg,#000000be,#292928d6);
 color:white;
 position:sticky;
 top:0;
@@ -39,8 +41,18 @@ z-index:1000;
 }
 
 .logo{
+display:flex;
+align-items:center;
 font-size:22px;
 font-weight:600;
+height:60px; /* controla altura del header */
+}
+
+.logo-img{
+height:150%;   /* ocupa toda la altura del logo */
+width:auto;    /* mantiene proporción */
+object-fit:contain;
+margin-right:10px;
 }
 
 nav{
@@ -155,11 +167,37 @@ margin-top:30px;
 display:inline-block;
 margin:10px;
 padding:12px 25px;
-background:#c19a6b;
+background:#494949e3;
 color:white;
 text-decoration:none;
 border-radius:6px;
 font-weight:600;
+}
+
+/* Email salvaje con degradado */
+/* Email con degradado de 4 colores */
+.contact-buttons a:first-child i{
+font-size:20px;
+
+background: linear-gradient(
+45deg,
+#ff3d00,
+#ffcc00,
+#00c853,
+#2979ff
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+background-clip: text;
+color: transparent;
+}
+
+/* WhatsApp */
+.contact-buttons a:last-child i{
+color:#25D366; /* verde WhatsApp */
+font-size:20px;
 }
 
 .whatsapp{
@@ -213,7 +251,10 @@ border-bottom:1px solid rgba(255,255,255,.2);
 
 <header>
 
-<div class="logo">Ortega Construction</div>
+<div class="logo">
+    <img src="iconos/logo.png" alt="Logo" class="logo-img">
+    Ortega Construction
+</div>
 
 <nav id="navMenu">
 
@@ -342,12 +383,16 @@ Painting service
 Contact Us
 </h2>
 
+
+
 <div class="contact-buttons">
 
-<a href="#" onclick="sendEmail()">Send Email</a>
+<a href="#" onclick="sendEmail()">  
+<i class="ri-mail-line"></i> Email
+</a>
 
 <a href="https://wa.me/13056327343" target="_blank">
-WhatsApp
+<i class="ri-whatsapp-line"></i> WhatsApp
 </a>
 
 </div>
