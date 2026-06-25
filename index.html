@@ -243,6 +243,103 @@ border-bottom:1px solid rgba(255,255,255,.2);
 
 }
 
+/* GALERÍA DE IMÁGENES */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+box-shadow:0 5px 12px rgba(0,0,0,.2);
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* =======================
+   LIGHTBOX
+======================= */
+
+.img-box{
+    position:relative;
+    cursor:pointer;
+}
+
+.img-box span{
+    display:block;
+    margin-top:8px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.lightbox{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+.close-lightbox{
+    position:absolute;
+    top:20px;
+    right:30px;
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    font-size:60px;
+    cursor:pointer;
+    user-select:none;
+    padding:15px;
+    transition:.3s;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+.prev:hover,
+.next:hover{
+    color:#e0c3a3;
+}
+
 </style>
 
 </head>
@@ -316,6 +413,76 @@ Company description
 
 </p>
 
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2 
+data-en="Our Work" 
+data-es="Trabajos Realizados">
+Our Work
+</h2>
+
+<div class="gallery">
+
+<div class="img-box">
+<img src="imagenes/image.png" alt="">
+<span>Image 1</span>
+</div>
+
+<div class="img-box">
+<img src="imagenes/2.jpeg" alt="">
+<span>Image 2</span>
+</div>
+
+<div class="img-box">
+<img src="imagenes/3.jpeg" alt="">
+<span>Image 3</span>
+</div>
+
+<div class="img-box">
+<img src="imagenes/4.jpeg" alt="">
+<span>Image 4</span>
+</div>
+
+<div class="img-box">
+<img src="imagenes/5.jpeg" alt="">
+<span>Image 5</span>
+</div>
+
+<div class="img-box">
+<img src="imagenes/6.jpeg" alt="">
+<span>Image 6</span>
+</div>
+
+<div class="img-box">
+<img src="imagenes/7.jpeg" alt="">
+<span>Image 7</span>
+</div>
+
+<div class="img-box">
+<img src="imagenes/8.jpeg" alt="">
+<span>Image 8</span>
+</div>
+
+</div>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+    <span class="close-lightbox">&times;</span>
+
+    <span class="prev">&#10094;</span>
+
+    <img id="lightboxImg" src="" alt="">
+
+    <span class="next">&#10095;</span>
+
+</div>
 
 </section>
 
@@ -442,6 +609,98 @@ window.open("https://mail.google.com/mail/?view=cm&to=marcoortega388@gmail.com&s
 window.onload=function(){
 changeLang("en")
 }
+
+//=====================
+// LIGHTBOX GALERÍA
+//=====================
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.querySelector(".close-lightbox");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+const images = document.querySelectorAll(".gallery img");
+
+let currentIndex = 0;
+
+function showImage(index){
+
+    if(index < 0){
+        index = images.length - 1;
+    }
+
+    if(index >= images.length){
+        index = 0;
+    }
+
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+
+}
+
+images.forEach((img,index)=>{
+
+    img.addEventListener("click",()=>{
+
+        lightbox.classList.add("active");
+        showImage(index);
+
+    });
+
+});
+
+nextBtn.onclick=()=>{
+
+    showImage(currentIndex+1);
+
+}
+
+prevBtn.onclick=()=>{
+
+    showImage(currentIndex-1);
+
+}
+
+closeBtn.onclick=()=>{
+
+    lightbox.classList.remove("active");
+
+}
+
+lightbox.onclick=(e)=>{
+
+    if(e.target===lightbox){
+
+        lightbox.classList.remove("active");
+
+    }
+
+}
+
+document.addEventListener("keydown",(e)=>{
+
+    if(!lightbox.classList.contains("active")) return;
+
+    if(e.key==="ArrowRight"){
+
+        showImage(currentIndex+1);
+
+    }
+
+    if(e.key==="ArrowLeft"){
+
+        showImage(currentIndex-1);
+
+    }
+
+    if(e.key==="Escape"){
+
+        lightbox.classList.remove("active");
+
+    }
+
+});
 
 </script>
 
